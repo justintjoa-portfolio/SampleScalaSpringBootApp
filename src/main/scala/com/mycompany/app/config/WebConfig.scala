@@ -1,4 +1,4 @@
-package com.mycompany.app.App.config
+package com.mycompany.app.config
 
 import org.apache.catalina.Context
 import org.apache.catalina.connector.Connector

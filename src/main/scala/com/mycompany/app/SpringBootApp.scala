@@ -1,4 +1,5 @@
-package com.mycompany.app.App
+package com.mycompany.app
+
 import org.springframework.boot.SpringApplication
 import org.springframework.boot.autoconfigure.SpringBootApplication
 import org.springframework.boot.autoconfigure.domain.EntityScan
