@@ -9,18 +9,17 @@ import javax.persistence._
 @Table(name = "Nodes", schema = "public")
 @JsonIgnoreProperties(Array("hibernateLazyInitializer", "handler"))
 class NodeEntry(
-               @Column(name = "userid")
-               var userID:String,
-               @Column(name="label")
+               var userid:String,
                var label:String,
-            @Column(name = "location")
             var location:String,
-               @Column(name="imageurl")
-                var imageURL:String,
-               @Column(name="bearing")
+                var imageurl:String,
                 var bearing:String) {
   @Id
-  val nodeID:String = UUID.randomUUID.toString()
+  val nodeid:String = UUID.randomUUID.toString()
+
+  def this() {
+    this("","","","","")
+  }
 
 
 }

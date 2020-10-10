@@ -1,22 +1,28 @@
 package com.mycompany.app.dbhandler.Data1
 
-import com.mycompany.app.entities.Data1.User
-import org.springframework.data.jpa.repository.JpaRepository
-import org.springframework.data.jpa.repository.Query
+import com.mycompany.app.entities.Data1.AppUser
+import org.springframework.data.jpa.repository.{JpaRepository, Modifying, Query}
 import org.springframework.data.repository.query.Param
 import java.util
 
-trait UserRepository extends JpaRepository[User, String] {
+import org.springframework.transaction.annotation.Transactional
+
+trait UserRepository extends JpaRepository[AppUser, String] {
 
 
 
-  @Query("SELECT u FROM User u WHERE u.username = :username")
+  @Query(value = "SELECT * FROM appusers u where u.username = ?1",
+    nativeQuery = true)
   def findUserByUsername(
-                                          @Param("username") userName:String): util.List[User]
+                                          userName:String): util.List[AppUser]
 
-  @Query("DELETE u FROM User u WHERE u.username = :username")
+
+  @Modifying
+  @Transactional
+  @Query(value = "DELETE FROM appusers u where u.username = ?1",
+    nativeQuery = true)
   def deleteUserByUsername(
-                          @Param("username") userName:String): Unit
+                          userName:String): Unit
 
 
 }

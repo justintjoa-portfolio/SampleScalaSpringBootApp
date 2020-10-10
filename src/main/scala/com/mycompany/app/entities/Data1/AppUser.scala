@@ -6,21 +6,20 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import javax.persistence._
 
 @Entity
-@Table(name = "Users", schema = "public")
+@Table(name = "AppUsers", schema = "public")
 @JsonIgnoreProperties(Array("hibernateLazyInitializer", "handler"))
-class User(
-            @Column(name = "username")
+class AppUser(
             var username:String,
-           @Column(name = "phoneNumber")
            var phoneNumber:String) {
 
-  @Column(name="bearingsUsed")
-  var bearingsUsed:Int = 0
+  var bearingsused:Int = 0
 
   @Id
-  val userID:String = UUID.randomUUID.toString()
+  val userid:String = UUID.randomUUID.toString()
 
-
+  def this() {
+    this("","")
+  }
 
 
 }
