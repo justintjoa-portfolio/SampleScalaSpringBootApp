@@ -9,8 +9,8 @@ import javax.persistence._
 @Table(name = "Users", schema = "public")
 @JsonIgnoreProperties(Array("hibernateLazyInitializer", "handler"))
 class User(
-            @Column(name = "userName")
-            var userName:String,
+            @Column(name = "username")
+            var username:String,
            @Column(name = "phoneNumber")
            var phoneNumber:String) {
 

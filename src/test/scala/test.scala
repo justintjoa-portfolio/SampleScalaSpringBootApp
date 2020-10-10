@@ -44,11 +44,11 @@ class test {
     var nodeinput3 = new NodeEntry(input.userID, "three", "foo", "foo2", "foo3")
     var nodeinput4 = new NodeEntry(input.userID, "four", "foo", "foo2", "foo3")
     nodeService.save(nodeinput); nodeService.save(nodeinput2); nodeService.save(nodeinput3); nodeService.save(nodeinput4)
-    userService.findByUsername(input.userName)
+    userService.findByUsername(input.username)
     nodeService.findByUserID(input.userID)
     nodeService.deleteByParams(input.userID, "three")
     nodeService.deleteByID(input.userID)
-    userService.deleteByUsername(input.userName)
+    userService.deleteByUsername(input.username)
 
   }
 

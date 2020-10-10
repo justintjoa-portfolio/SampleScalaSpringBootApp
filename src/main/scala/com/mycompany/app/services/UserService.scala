@@ -14,9 +14,20 @@ class UserService {
   @Autowired
   private val userRepository:UserRepository = null
 
-  def findByUsername(Username: String):User = userRepository.findUserByUsername(Username).orElse(throw new Exception())
+  def findByUsername(Username: String):User = {
+    var userBank = userRepository.findUserByUsername(Username)
+    if (userBank.size() == 0) {
+      throw new Exception()
+    }
+    return userBank.get(0)
+  }
 
-  def save(userEntry: User):User = userRepository.save(userEntry)
+  def save(userEntry: User):User= {
+    if (userRepository.findUserByUsername(userEntry.username).size() > 0) {
+      throw new Exception()
+    }
+    userRepository.save(userEntry)
+  }
 
   def deleteByUsername(Username: String):Unit = userRepository.deleteUserByUsername(Username)
 }

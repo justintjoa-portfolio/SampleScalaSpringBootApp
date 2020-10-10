@@ -8,17 +8,17 @@ import org.springframework.data.repository.query.Param
 
 trait NodeRepository extends JpaRepository[NodeEntry, String] {
 
-  @Query("SELECT u FROM NodeEntry u WHERE u.user = :user")
+  @Query("SELECT u FROM NodeEntry u WHERE u.userid = :userid")
   def findNodesByUserID(
-                         @Param("user") userID: String): java.util.Optional[util.List[NodeEntry]]
+                         @Param("userid") userID: String): util.List[NodeEntry]
 
-  @Query("DELETE u FROM NodeEntry u WHERE u.user = :user")
+  @Query("DELETE u FROM NodeEntry u WHERE u.userid = :userid")
   def deleteNodesByUserID(
-                           @Param("user") userID: String): Unit
+                           @Param("userid") userID: String): Unit
 
-  @Query("DELETE u FROM NodeEntry u WHERE u.user = :user and u.label = :label")
+  @Query("DELETE u FROM NodeEntry u WHERE u.userid = :userid and u.label = :label")
   def deleteNodesByParams(
-                           @Param("user") userID: String,
+                           @Param("userid") userID: String,
                            @Param("label") label: String): Unit
 
 

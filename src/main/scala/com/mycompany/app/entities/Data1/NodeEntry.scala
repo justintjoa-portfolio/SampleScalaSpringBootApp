@@ -9,14 +9,14 @@ import javax.persistence._
 @Table(name = "Nodes", schema = "public")
 @JsonIgnoreProperties(Array("hibernateLazyInitializer", "handler"))
 class NodeEntry(
-               @Column(name = "user")
-               var user:String,
+               @Column(name = "userid")
+               var userID:String,
                @Column(name="label")
                var label:String,
             @Column(name = "location")
             var location:String,
-               @Column(name="imageBucketURL")
-                var URL:String,
+               @Column(name="imageurl")
+                var imageURL:String,
                @Column(name="bearing")
                 var bearing:String) {
   @Id
