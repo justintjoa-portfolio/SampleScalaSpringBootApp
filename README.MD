@@ -1,6 +1,6 @@
 Beginning of my advanced version of an environmental tagging AR mobile app. 
 
-
+Leveraging Scala, SpringBoot, and PostgreSQL
 
 Note to Self:
 
