@@ -17,7 +17,7 @@ import java.security.GeneralSecurityException
 import java.util
 import java.util.UUID
 
-import com.mycompany.app.services.UserService
+import com.mycompany.app.services.{NodeService, UserService}
 import javax.servlet.http.HttpServletRequest
 
 @RestController
@@ -26,6 +26,9 @@ class restcontroller {
 
   @Autowired
   private val userService:UserService = null
+
+  @Autowired
+  private val nodeService:NodeService = null
 
 
   @RequestMapping(value = Array("/register"), method = Array(RequestMethod.POST))

@@ -21,7 +21,7 @@ import java.util
 
 @Configuration
 @EnableTransactionManagement
-@EnableJpaRepositories(entityManagerFactoryRef = "userEntityManagerFactory", transactionManagerRef = "userTransactionManager", basePackages = Array("com.mycompany.app.dbhandler.User"))
+@EnableJpaRepositories(entityManagerFactoryRef = "userEntityManagerFactory", transactionManagerRef = "userTransactionManager", basePackages = Array("com.mycompany.app.dbhandler.Data1"))
 class Data1Config {
   @Primary
   @Bean(name = Array("userDataSource"))
@@ -31,7 +31,7 @@ class Data1Config {
   @Bean(name = Array("userEntityManagerFactory")) def entityManagerFactory(builder: EntityManagerFactoryBuilder, @Qualifier("userDataSource") dataSource: DataSource): LocalContainerEntityManagerFactoryBean = {
     val properties = new util.HashMap[String, AnyRef]
     properties.put("hibernate.hbm2ddl.auto", "update")
-    return builder.dataSource(dataSource).packages("com.mycompany.app.entities.User").persistenceUnit("db1").properties(properties).build
+    return builder.dataSource(dataSource).packages("com.mycompany.app.entities.Data1").persistenceUnit("db1").properties(properties).build
   }
 
   @Primary

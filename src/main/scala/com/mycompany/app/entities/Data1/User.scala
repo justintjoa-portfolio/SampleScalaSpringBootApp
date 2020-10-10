@@ -1,4 +1,4 @@
-package com.mycompany.app.entities.User
+package com.mycompany.app.entities.Data1
 
 import java.util.UUID
 
@@ -9,10 +9,18 @@ import javax.persistence._
 @Table(name = "Users", schema = "public")
 @JsonIgnoreProperties(Array("hibernateLazyInitializer", "handler"))
 class User(
+            @Column(name = "userName")
+            var userName:String,
            @Column(name = "phoneNumber")
            var phoneNumber:String) {
 
+  @Column(name="bearingsUsed")
+  var bearingsUsed:Int = 0
+
   @Id
-  var userID = UUID.randomUUID.toString()
+  val userID:String = UUID.randomUUID.toString()
+
+
+
 
 }
