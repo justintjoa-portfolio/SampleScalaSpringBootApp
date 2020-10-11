@@ -4,7 +4,7 @@ import org.springframework.stereotype.Service
 import java.util
 
 import com.mycompany.app.dbhandler.Data1.{NodeRepository, UserRepository}
-import com.mycompany.app.entities.Data1.{NodeEntry, User}
+import com.mycompany.app.entities.Data1.{NodeEntry, AppUser}
 
 
 @Service
@@ -18,9 +18,6 @@ class NodeService {
   }
 
   def save(nodeEntry: NodeEntry):NodeEntry = {
-    if (nodeRepository.findNodesByUserID(nodeEntry.userID).size() >= 10) {
-      throw new Exception()
-    }
     return nodeRepository.save(nodeEntry)
   }
 

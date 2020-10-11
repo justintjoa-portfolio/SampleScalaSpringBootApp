@@ -37,18 +37,19 @@ class test {
 
   @Test
   def basic(): Unit = {
-    var input = new User("jack", "+16265337628")
+    var input = new AppUser("jack", "+16265337628")
     userService.save(input)
-    var nodeinput = new NodeEntry(input.userID, "one", "foo", "foo2", "foo3")
-    var nodeinput2 = new NodeEntry(input.userID, "two", "foo", "foo2", "foo3")
-    var nodeinput3 = new NodeEntry(input.userID, "three", "foo", "foo2", "foo3")
-    var nodeinput4 = new NodeEntry(input.userID, "four", "foo", "foo2", "foo3")
+    var nodeinput = new NodeEntry(input.userid, "foo")
+    var nodeinput2 = new NodeEntry(input.userid, "bar")
+    var nodeinput3 = new NodeEntry(input.userid, "foo and bar")
+    var nodeinput4 = new NodeEntry(input.userid, "bar and foo")
     nodeService.save(nodeinput); nodeService.save(nodeinput2); nodeService.save(nodeinput3); nodeService.save(nodeinput4)
     userService.findByUsername(input.username)
-    nodeService.findByUserID(input.userID)
-    nodeService.deleteByParams(input.userID, "three")
-    nodeService.deleteByID(input.userID)
+    nodeService.findByUserID(input.userid)
+    nodeService.deleteByParams(input.userid, "foo")
+    nodeService.deleteByID(input.userid)
     userService.deleteByUsername(input.username)
+
 
   }
 
