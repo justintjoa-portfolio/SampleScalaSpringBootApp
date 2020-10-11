@@ -10,15 +10,12 @@ import javax.persistence._
 @JsonIgnoreProperties(Array("hibernateLazyInitializer", "handler"))
 class NodeEntry(
                var userid:String,
-               var label:String,
-            var location:String,
-                var imageurl:String,
-                var bearing:String) {
+               var label:String) {
   @Id
   val nodeid:String = UUID.randomUUID.toString()
 
   def this() {
-    this("","","","","")
+    this("","")
   }
 
 

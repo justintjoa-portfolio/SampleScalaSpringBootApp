@@ -18,9 +18,6 @@ class NodeService {
   }
 
   def save(nodeEntry: NodeEntry):NodeEntry = {
-    if (nodeRepository.findNodesByUserID(nodeEntry.userid).size() >= 10) {
-      throw new Exception()
-    }
     return nodeRepository.save(nodeEntry)
   }
 

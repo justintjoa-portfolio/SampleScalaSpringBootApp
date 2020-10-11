@@ -12,8 +12,6 @@ class AppUser(
             var username:String,
            var phoneNumber:String) {
 
-  var bearingsused:Int = 0
-
   @Id
   val userid:String = UUID.randomUUID.toString()
 
