@@ -7,7 +7,8 @@ You can fork this sample Jenkins pipeline here:
 
 https://github.com/justintjoa-portfolio/SampleJenkinsPipeline
 
-For the CI/CD aspect. It has a seedjob which will generate the main build job. 
+For the CI/CD aspect. It has a seedjob which will generate the main build job. This SpringBoot app has a Jenkinsfile
+that will work with that jenkins instance.
 
 The gradle also has extra libraries included for using JWT and JSON parsing if you need. 
 
