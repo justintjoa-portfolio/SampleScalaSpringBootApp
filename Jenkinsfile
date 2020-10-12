@@ -13,6 +13,7 @@
         stage('Test') {
             steps {
                 sh './gradlew test'
+                deleteDir()
             }
         }
     }
