@@ -1,21 +1,5 @@
-buildscript {
-    repositories {
-        maven {
-            url "https://plugins.gradle.org/m2/"
-        }
-    }
-    dependencies {
-        classpath "com.palantir.gradle.docker:gradle-docker:0.25.0"
-    }
-}
-
-
-
-
 plugins {
     id 'scala'
-    id 'com.palantir.docker' version '0.25.0'
-    id 'com.palantir.docker-run' version '0.25.0'
     id 'org.springframework.boot' version '2.3.3.RELEASE'
 }
 
@@ -34,31 +18,6 @@ tasks.withType(ScalaCompile) {
     ScalaCompileOptions.metaClass.useAnt = false
     ScalaCompileOptions.metaClass.useCompileDaemon = false
 }
-
-
-bootJar {
-    baseName = 'gs-spring-boot-docker'
-    version =  '0.1.0'
-}
-
-String imageName = "projectone"
-
-docker {
-    name imageName
-    files "build/libs/${bootJar.archiveFileName.get()}"
-    buildArgs([JAR_FILE: bootJar.archiveFileName.get()])
-}
-
-dockerRun {
-    name project.name
-    image imageName
-    ports '8443:8443'
-    clean true
-}
-
-
-group 'org.example'
-version '1.0-SNAPSHOT'
 
 repositories {
     mavenCentral()
