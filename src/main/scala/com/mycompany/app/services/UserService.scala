@@ -2,7 +2,6 @@ package com.mycompany.app.services
 
 import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.stereotype.Service
-import java.util
 
 import com.mycompany.app.dbhandler.Data1.UserRepository
 import com.mycompany.app.entities.Data1.AppUser
