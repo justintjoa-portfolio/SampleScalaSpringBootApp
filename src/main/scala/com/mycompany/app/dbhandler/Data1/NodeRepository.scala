@@ -4,7 +4,6 @@ import java.util
 
 import com.mycompany.app.entities.Data1.NodeEntry
 import org.springframework.data.jpa.repository.{JpaRepository, Modifying, Query}
-import org.springframework.data.repository.query.Param
 import org.springframework.transaction.annotation.Transactional
 
 trait NodeRepository extends JpaRepository[NodeEntry, String] {
